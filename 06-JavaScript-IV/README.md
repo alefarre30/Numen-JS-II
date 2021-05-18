@@ -65,7 +65,7 @@ const loveJSString = 'lovesJavascript';
 
 nuevoUsuario.username = 'otro.nombre.de.usuario';
 nuevoUsuario['password'] = '12345';
-nuevoUsuario[loveJSString] = true;
+nuevoUsuario[loveJSString] = true; //le asigna un nuevo valor de TRUE.
 ```
 
 ## Eliminando propiedades
@@ -171,7 +171,7 @@ Cuando estamos dentro de una función, el valor de `this` va a depender de _cóm
 > f1() === window;
 < true
 
-> window.fi() === window;
+> window.f1() === window;
 < true
 ```
 
@@ -247,7 +247,7 @@ var obj = {
     this.nombre = 'Cambiado'; // this se refiere a este objeto, a `obj`
     console.log(this); // obj
 
-    var that = this; // Guardo la referencia a this
+    var that = this; // Guardo la referencia a this, 
 
     var cambia = function( str ){
       that.nombre = str;  // Uso la referencia dentro de esta funcion

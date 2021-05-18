@@ -1,0 +1,73 @@
+- Objetos y Notación de puntos vs notación de corchetes
+
+Los objetos son estructuras de datos que representan objetos de la vida real y como estos poseen caracteristicas (propiedades) y 
+funcionalidades (metodos). Para acceder a las propiedades y metodos del mismo se utiliza el operador punto o los corchetes.
+Veamos un ejemplo:
+
+#DECLARACION DE UN OBJETO PERSONA CON nombre Y apellido:
+const persona = {
+    nombre: "Alejandra",
+    apellido: "Farre"
+};
+
+#FORMA DE ACCEDER A SUS PROPIEDADES
+console.log(persona.nombre);        //Esto devolvera "Alejandra"
+console.log(persona.apellido);      //Esto devolvera "Farre"
+
+Tambien se pueden modificar sus valores de la siguiente forma: 
+
+persona.nombre = "Otro nombre";     
+console.log(persona.nombre);        //Ahora devolvera "Otro nombre" ya que fue modificado
+
+- Propiedades
+
+Las propiedades permiten describir los objetos, nos dicen como son estos, ejemplo en el objeto "PERSONA" que tenemos arriba creamos 
+un objeto con las propiedades "nombre" y "apellido".
+
+- Métodos
+
+Los metodos a diferencia de las propiedades realizan acciones, por ejemplo en el caso de el objeto "PERSONA" podria ser caminar, o correr, 
+veamos un ejemplo de como implementar esto:
+
+const persona = {
+    nombre: "Alejandra",
+    apellido: "Farre",
+    caminar: function (){
+        console.log(this.nombre, "esta caminando");
+    },
+    correr: function (){
+        console.log(this.nombre, "esta corriendo");
+    }
+
+};
+
+Para acceder a dichos metodos se hace de la misma forma que con las propiedades: 
+
+persona.caminar();      //Devolvera "Alejandra esta caminando"
+persona.correr();       //Devolvera "Alejandra esta corriendo"
+
+La diferencia aqui es que los metodos deben llamarse con los parentesis.
+
+- Bucle `for…in`
+
+Permite recorrer los elementos de una lista de objetos, veamos un ejemplo practico: 
+
+const personas = {
+    nombre: "Alejandra", 
+    apellido: "Farre", 
+    edad: 33
+};
+
+Si quisieramos recorrer cada uno de los elementos del array Personas hariamos lo siguiente: 
+
+for(const persona in personas){
+    console.log(persona, ":", personas[persona]);   
+}
+
+/*
+Salida: 
+-----------------
+nombre: Alejandra
+apellido: Farre
+edad: 33
+*/
