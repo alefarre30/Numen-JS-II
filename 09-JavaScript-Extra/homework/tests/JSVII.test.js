@@ -8,7 +8,7 @@ const {
     deleteAbc,
     sortArray,
     buscoInterseccion,
-} = require('../tareas');
+} = require('../homework');
 
 
 describe('deObjetoAmatriz(objeto)', function() {

@@ -10,6 +10,18 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
+
+  const matriz = [];
+
+  let i = 0;
+  for(p in objeto) {
+    matriz[i] = new Array(2)
+    matriz[i][0] = p
+    matriz[i][1] = objeto[p]
+    i++;
+  }
+
+  return matriz;
 }
 
 
@@ -18,6 +30,23 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+
+  const obj = {};
+
+  for(let i=0; i<string.length; i++){
+    if(!obj.hasOwnProperty(string[i])){
+        obj[string[i]] = 0; 
+    }
+  }
+
+  for(let i=0; i<string.length; i++){
+    if(obj.hasOwnProperty(string[i])){
+      obj[string[i]]++; 
+    }
+  }
+
+  return obj;
+
 }
 
 
@@ -26,6 +55,21 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: cursoNUMEN -> NUMENcurso
   //Escribe tu código aquí
+
+  let mayusculas = s.split("").filter((e, i) => {
+    if(s.charCodeAt(i) >= 65 && s.charCodeAt(i) <= 90){
+      return s[i];
+    }
+  });
+  
+  let minusculas = s.split("").filter((e, i) => {
+    if(s.charCodeAt(i) > 90){
+      return s[i];
+    }
+  });
+  
+  return mayusculas.concat(minusculas).join("");  
+  
 }
 
 
@@ -35,6 +79,15 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Numen Challenge is close!" || Devuelve ---> "ehT nemuN egnellahC si !esolc"
   //Escribe tu código aquí
+
+  let cadenas = str.split(" ");
+
+  let newCadena = cadenas.reduce((acc, el) => {
+    return acc + Array.from(el).reverse().join("").toString() + " ";
+  },"");
+
+  return newCadena.trim();
+
 } 
 
 
@@ -43,6 +96,16 @@ function capicua(numero){
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+  
+  let cad1 = Array.from(numero.toString());
+  let cad2 = Array.from(numero.toString());
+
+  if(cad2.reverse().join("") === cad1.join("")){
+    return "Es capicua";
+  }else{
+    return "No es capicua";
+  }
+
 }
 
 
@@ -50,6 +113,16 @@ function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+
+  let newCadena = "";
+  for(let i=0; i<cadena.length; i++){
+    if(cadena[i] !== 'a' && cadena[i] !== 'b' && cadena[i] !== 'c' && cadena[i] !== 'A' && cadena[i] !== 'B' && cadena[i] !== 'C'){
+      newCadena += cadena[i]; 
+    }
+  }
+
+  return newCadena;
+
 }
 
 
@@ -57,6 +130,22 @@ function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+
+  let ilong = 0;
+  let xlong = 0;
+  for (let i=0; i<arr.length; i++){
+    for (let j=0; j<arr.length-1 - i; j++) {
+      ilong = arr[j].length;
+      xlong = arr[j+1].length;
+      if(ilong > xlong) {
+        [arr[j], arr[j+1]] = [arr[j+1], arr[j]];
+      }
+    }
+  }
+
+  return arr;
+
+
 }
 
 
@@ -66,6 +155,13 @@ function buscoInterseccion(arreglo1, arreglo2){
   //Si no tienen elementos en común, retornar un arreglo vacío.
   //Aclaración: los arreglos no necesariamente tienen la misma longitud
   //Escribe tu código aquí  
+  let newArray = arreglo1.filter((e) => {
+    if(arreglo2.includes(e)){
+      return e;
+    }
+  });
+
+  return newArray;
 }
 
 

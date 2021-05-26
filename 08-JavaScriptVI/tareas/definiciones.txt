@@ -1,0 +1,15 @@
+Callback es la capacidad de pasar una función como argumento a otra función. Estas funciones pueden llamarse en cualquier momento 
+y pasar argumentos dentro de la función. 
+
+Ejemplo de uso:
+
+function suma(a, b, cb){
+    let resultado = a + b;
+    cb(resultado);
+}
+
+function muestraResultado(r){
+    console.log("El resultado es: ", r);
+}
+
+fuma(2,2, muestraResultado);    //El resultado es: 4
